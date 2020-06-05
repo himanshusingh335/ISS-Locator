@@ -82,6 +82,7 @@ class AppLayout extends State<Home> {
           return Column(
             children: <Widget>[
               Card(
+                color: Colors.black38,
                 child: InkWell(
                   splashColor: Colors.blue.withAlpha(30),
                   onTap: () {

@@ -1,6 +1,6 @@
-# bmicalc
+# isslocator
 
-BMI calculator
+ISS Locator
 
 ## Getting Started
 

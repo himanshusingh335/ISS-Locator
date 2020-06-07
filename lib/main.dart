@@ -13,11 +13,23 @@ class ISSLoc extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.orangeAccent,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
       title: "ISS Locator",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("ISS Locator"),
-          backgroundColor: Colors.orange,
+          title: Text(
+            "ISS Locator",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          backgroundColor: Colors.orangeAccent,
         ),
         drawer: Drawer(
           child: ListView(
@@ -25,7 +37,7 @@ class ISSLoc extends StatelessWidget {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: Colors.orangeAccent,
                 ),
                 child: Text(
                   "ISS Locator",
@@ -82,9 +94,8 @@ class AppLayout extends State<Home> {
           return Column(
             children: <Widget>[
               Card(
-                color: Colors.green,
                 child: InkWell(
-                  splashColor: Colors.blue.withAlpha(30),
+                  splashColor: Colors.orangeAccent.withAlpha(30),
                   onTap: () {
                     launchURL1();
                   },
@@ -94,24 +105,28 @@ class AppLayout extends State<Home> {
                       ListTile(
                         leading: Icon(Icons.swap_horiz, color: Colors.green),
                         title: Text(
-                            "Latitude: " + snapshot.data.latitude.toString()),
+                          "Latitude: " + snapshot.data.latitude.toString(),
+                        ),
                       ),
                       ListTile(
                         leading: Icon(Icons.swap_vert, color: Colors.green),
-                        title: Text("Longitude : " +
-                            snapshot.data.longitude.toString()),
+                        title: Text(
+                          "Longitude : " + snapshot.data.longitude.toString(),
+                        ),
                       ),
                       ListTile(
                         leading:
                             Icon(Icons.remove_red_eye, color: Colors.lightBlue),
-                        title: Text("Visibility : " +
-                            snapshot.data.visibility.toString()),
+                        title: Text(
+                          "Visibility : " + snapshot.data.visibility.toString(),
+                        ),
                       ),
                       ListTile(
                         leading:
                             Icon(Icons.fast_forward, color: Colors.redAccent),
                         title: Text(
-                            "Velocity : " + snapshot.data.velocity.toString()),
+                          "Velocity : " + snapshot.data.velocity.toString(),
+                        ),
                       ),
                     ],
                   ),
@@ -123,29 +138,38 @@ class AppLayout extends State<Home> {
                   children: <Widget>[
                     ListTile(
                       leading: Icon(Icons.people, color: Colors.amber),
-                      title: Text("Number of people aboard ISS : " +
-                          snapshot.data.number.toString()),
+                      title: Text(
+                        "Number of people aboard ISS : " +
+                            snapshot.data.number.toString(),
+                      ),
                     ),
                   ],
                 ),
               ),
               Expanded(
-                child: ListView.builder(
-                    itemCount: snapshot.data.number,
-                    itemBuilder: (BuildContext context, index) {
-                      return ListTile(
-                        leading:
-                            Icon(Icons.person_outline, color: Colors.amber),
-                        title: Text(snapshot.data.people[index].name),
-                      );
-                    }),
+                child: ListView.separated(
+                  itemCount: snapshot.data.number,
+                  itemBuilder: (BuildContext context, index) {
+                    return ListTile(
+                      leading: Icon(Icons.person_outline, color: Colors.amber),
+                      title: Text(snapshot.data.people[index].name),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider();
+                  },
+                ),
               ),
               Card(
                 child: ListTile(
                   leading: Icon(Icons.my_location,
                       color: Colors.lightGreenAccent, size: 35),
-                  title: Text('ISS PASS TIMES OVER INDIA: '),
-                  subtitle: Text('(24-Hour Format)'),
+                  title: Text(
+                    'ISS PASS TIMES OVER INDIA: ',
+                  ),
+                  subtitle: Text(
+                    '(24-Hour Format)',
+                  ),
                 ),
               ),
               Expanded(

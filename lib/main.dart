@@ -15,7 +15,6 @@ class ISSLoc extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.orangeAccent,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,

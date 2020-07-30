@@ -148,7 +148,7 @@ class AppLayout extends State<Home> {
               Expanded(
                 child: ListView.separated(
                   itemCount: snapshot.data.number,
-                  itemBuilder: (BuildContext context, index) {
+                  itemBuilder: (BuildContext context, int index) {
                     return ListTile(
                       leading: Icon(Icons.person_outline, color: Colors.amber),
                       title: Text(snapshot.data.people[index].name),

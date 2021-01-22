@@ -11,7 +11,6 @@ void main() {
 class ISSLoc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       theme: ThemeData(
         brightness: Brightness.light,
@@ -64,10 +63,10 @@ class ISSLoc extends StatelessWidget {
 
 class Home extends StatefulWidget {
   @override
-  createState() => AppLayout();
+  createState() => _Home();
 }
 
-class AppLayout extends State<Home> {
+class _Home extends State<Home> {
   Future futureAlbum;
 
   @override
